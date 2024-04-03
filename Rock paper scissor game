@@ -1,0 +1,39 @@
+# Computer and the user will compete to win the rock, paper, scissor game
+
+# import random package to generate random choice for the computer
+import random
+
+# Variables to calculate user and computer scores
+user_score = 0
+comp_score = 0
+
+# List to store the possible options
+options = ["rock", "paper", "scissors"]
+
+# Loops to continue the game until user enteres "q" to quit the game
+    
+while True:
+    user_choice = input("Please enter your choice (Rock/Paper/Scissor or Q to quit): ").lower()
+    
+    comp_choice = random.randint(0,2)
+    comp_choice = options[comp_choice]
+    print("Computer picked", comp_choice)
+    
+    if user_choice == "q":
+        break
+    elif user_choice == 'rock' and comp_score == 'scissors':
+        user_score += 1
+        print("Congrats you won")
+    elif user_choice == 'paper' and comp_score == 'rock':
+        user_score += 1
+        print("Congrats you won")
+    elif user_choice == 'scissor' and comp_score == 'paper':
+        user_score += 1
+        print("Congrats you won")
+    elif user_choice == comp_choice:
+        print("Its a draw")
+    else:
+        comp_score += 1
+        print("Computer wins")
+         
+print("Thank you for playing. Your score is", user_score, "and the computer score is", str(comp_score) + ".")
