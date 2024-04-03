@@ -1,0 +1,33 @@
+# Import random package to generate random number
+import random
+
+print("This game is to guess the number")
+
+# Request for range from user
+num_range = input("Please enter a digit to define the range of number: ")
+
+# Generate random number
+if num_range.isdigit():
+    num_random = random.randint(0, int(num_range))
+    
+guess = 0
+
+# Create a loop which will request for user to guess the number until the user makes the right guess.
+while True:
+    guess += 1
+    user_input = input("Please enter your guess: ")
+
+    if user_input.isdigit():
+        user_input = int(user_input)
+    
+    if user_input == num_random:
+        print("You guessed it right")
+        break
+    elif user_input > num_random:
+        print("Your guess is greater than the number.")
+    else:
+        print("Your guess is lesser than the number.")
+
+# The number of guess user made to guess the number is printed as the output
+
+print("Thank you for playing. You guessed it in", guess, "attempts")
