@@ -1,0 +1,58 @@
+# Starting quiz with a introduction to game rules.
+print("Welcome to the Quiz")
+print("Each correct answer with fetch 1 point. No negative score for incorrect answers.")
+
+# Requesting inputs from the user
+
+play_status = input("Do you want to start playing the quiz? ")
+
+# Checking if user wants to start playing
+
+if play_status.lower != 'yes':
+    quit()
+
+print("Lets start playing")
+
+# Variable score to calculate user's score
+score = 0
+
+# Questions and answers processed
+
+answer1 = input("What is 80 + 56 ? ")
+if answer1 == '136':
+    score+=1
+    print("Congrats, correct answer")
+else:
+    print("Incorrect answer")
+    
+answer2 = input("What is 12 * 12 ? ")
+if answer2 == '144':
+    score+=1
+    print("Congrats, correct answer")
+else:
+    print("Incorrect answer")
+    
+answer3 = input("What is 40 + 45 ? ")
+if answer3 == '95':
+    score+=1
+    print("Congrats, correct answer")
+else:
+    print("Incorrect answer")
+    
+answer4 = input("What is 34 * 11 ? ")
+if answer4 == '374':
+    score+=1
+    print("Congrats, correct answer")
+else:
+    print("Incorrect answer")
+    
+answer5 = input("What is 63/7 ? ")
+if answer5 == '9':
+    score+=1
+    print("Congrats, correct answer")
+else:
+    print("Incorrect answer")
+    
+# Revealing quiz score with the user
+print("Thank you for playing. Your have score " + str(score)+ " .")
+print("Your have answered " + str((score/5)/100) + "% of the answers correct")
