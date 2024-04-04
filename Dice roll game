@@ -1,0 +1,70 @@
+# import random package
+# Game rule: The score will be incremented based on the score of Dice roll except 
+# when the Dice roll score is 1, the total score will be made zero.
+
+
+import random
+
+# Define roll()
+# Variables defining max and min range while rolling the Dice
+
+def roll():
+    
+    min_range = 1
+    max_range = 6
+
+    roll_value = random.randint(min_range, max_range)
+
+    return(roll_value)
+
+
+while True:
+    
+    # Block of code to fetch the number of players (2-4) from user. 
+
+    max_players = input("Please enter the number of players playing the game (2-4): ")
+    
+    if max_players.isdigit():
+        max_players = int(max_players)
+        if  max_players > 4 or max_players < 2:
+            print("Invalid input. The number of players needs to be between 2 - 4")
+            break
+        else:
+            print("Number of players is: ", max_players)
+            break
+    else:
+        print("Invalid input. Please enter a value between 2 - 4")
+        
+max_score = 50
+player_score = [0 for _ in range(max_players)]
+
+
+while max(player_score) < max_score:
+    
+    for player_index in range(max_players):
+        
+        print("\nPlayer " + str(player_index + 1)  + " . Its your turn")
+        print("Your current score is", player_score[player_index], "\n")
+    
+        current_score = 0
+              
+        while True:
+    
+            user_choice = input("Do you want to roll(y)? ")
+            if user_choice.lower() != 'y':
+                break
+
+            value = roll()
+
+            if value == 1:
+                current_score = 0
+                print("You have rolled a 1 and your turn is terminated")
+                break
+            else:
+                print("You have rolled a", value)
+                current_score += value
+
+            print("Your current score is", current_score)
+    
+    player_score[player_index] += current_score
+    print("Your total score is", player_score[player_index])
