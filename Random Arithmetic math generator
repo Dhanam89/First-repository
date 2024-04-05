@@ -1,0 +1,49 @@
+# import required packages to generate random choice/int and record time elapse
+
+import random
+import time
+
+# Define constant which will be used to generate the Arithemetic expression
+
+OPERATOR = ["+", "-", "*"]
+MIN_VALUE = 3
+MAX_VALUE = 12
+MAX_ROUND = 10
+
+# Variables to track score and time lapse
+score = 0
+start_time = time.time()
+
+def math_generator():
+     # Generating random integers and operator using constants to generate the Arithemetic expression
+        left = random.randint(MIN_VALUE, MAX_VALUE)
+        right = random.randint(MIN_VALUE,MAX_VALUE)
+        rand_operator = random.choice(OPERATOR) 
+
+        # Evaluate the Arithemetic operation to compare with user's answer
+        expr = str(left) + " " + rand_operator + " " + str(right)
+        answer = eval(expr)
+        return expr, answer
+
+# Loop to continue till user plays 10 rounds 
+
+for score in range(MAX_ROUND):
+    
+    expr, answer = math_generator()
+    
+    while True:
+
+            # Receive answer from user
+        user_ans = input("Problem #" + str(score + 1) + " is " + expr + " =")
+
+        if  user_ans == str(answer):
+            break
+        else:
+            print("Incorrect answer. Please try again")
+        score += 1    
+
+end_time = time.time()
+play_time = end_time - start_time
+
+print("\nThank you for playing.")
+print("You finished the game in ", play_time, " secs")
